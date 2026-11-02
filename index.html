@@ -13,7 +13,17 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:"Pretendard","A
 header{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:20px}
 h1{font-size:22px;font-weight:600;margin:0}
 .meta{color:var(--muted);font-size:13px}
-.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:20px}
+.kpi{display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) minmax(0,1.7fr);gap:12px;margin-bottom:20px}
+@media (max-width:960px){.kpi{grid-template-columns:repeat(2,minmax(0,1fr))}.kpi .tlbox{grid-column:span 2}}
+.tlbox .tl{margin-top:8px}
+.tlr{display:grid;grid-template-columns:56px minmax(0,1fr) 38px;align-items:center;gap:8px;font-size:12px;color:var(--text2);margin-bottom:6px}
+.trk{position:relative;height:10px;border-radius:5px;background:var(--bg);border:1px solid var(--line-strong);overflow:visible}
+.fill{position:absolute;left:0;top:0;bottom:0;border-radius:5px}
+.plan{position:absolute;top:-4px;bottom:-4px;width:2px;background:var(--text)}
+.pct{text-align:right;font-weight:600;color:var(--text)}
+.ax{display:grid;grid-template-columns:56px minmax(0,1fr) 38px;gap:8px;font-size:11px;color:var(--muted)}
+.ax .d{position:relative;height:14px}
+.ax .d span{position:absolute;top:0;white-space:nowrap}
 .kpi>div{background:var(--surface);border-radius:8px;padding:14px 16px}
 .kpi .l{font-size:13px;color:var(--text2)}
 .kpi .v{font-size:26px;font-weight:600}
@@ -65,8 +75,17 @@ footer{margin-top:24px;color:var(--muted);font-size:12px}
 <section class="kpi">
 <div><div class="l">이노핏 계획 대비</div><div class="v">90%</div><div class="s">9 / 10건 (W1-W3)</div></div>
 <div><div class="l">이노핏 전체</div><div class="v">20%</div><div class="s">9 / 45건</div></div>
-<div><div class="l">한솔제지 업무</div><div class="v">2 / 5건</div><div class="s">W5에 3건 예정</div></div>
-<div class="warn"><div class="l">지연</div><div class="v">1건</div><div class="s">#7 LLM R&amp;D 초기 결과 공유</div></div>
+<div><div class="l">한솔제지 업무</div><div class="v">3 / 7건</div><div class="s">W5에 4건 예정</div></div>
+<div class="warn"><div class="l">지연</div><div class="v">1건</div><div class="s">이노핏 #7 LLM R&amp;D 초기 결과 공유</div></div>
+<div class="tlbox">
+<div class="l">전체 타임라인 (10/12 - 12/31, 12주)</div>
+<div class="tl">
+<div class="tlr"><span>일정 경과</span><div class="trk"><div class="fill" style="width:26%;background:var(--today)"></div></div><span class="pct">26%</span></div>
+<div class="tlr"><span>실적 진척</span><div class="trk"><div class="fill" style="width:20%;background:var(--done)"></div><div class="plan" style="left:22%" title="계획 진척 22% (W1-W3 10건)"></div></div><span class="pct">20%</span></div>
+<div class="ax"><span></span><div class="d"><span style="left:0">10/12</span><span style="right:0">12/31</span></div><span></span></div>
+</div>
+<div class="s">오늘 11/2 (W4), 21 / 80일 경과 / 계획 22% 대비 실적 -2%p (눈금 = 계획)</div>
+</div>
 </section>
 <div class="legend">
 <span><i class="sw" style="background:var(--done)"></i>이노핏 완료</span>
@@ -139,12 +158,14 @@ footer{margin-top:24px;color:var(--muted);font-size:12px}
 <div class="row task" title="44. 합의한 사용·검토 이력의 기록 여부를 확인한다."><span class="lab"><span class="t"><span class="num">44.</span> 사용·검토 이력 확인</span></span><div class="tb plan" style="grid-column:13/14"></div></div>
 <div class="row task" title="45. 이관 자료와 잔여 사항의 다음 조치·담당·일정을 함께 확인한다."><span class="lab"><span class="t"><span class="num">45.</span> 이관·잔여 사항 확인</span></span><div class="tb plan" style="grid-column:13/14"></div></div>
 </details>
-<div class="sec">한솔제지 협업 (5건)</div>
+<div class="sec">한솔제지 협업 (7건)</div>
 <div class="row ms"><span class="lab" style="padding-left:22px"><span class="t">안전관리계획서 검토 know-how 이전</span></span><div class="bar" style="grid-column:2/3"><i style="width:100%;background:var(--han)"></i></div></div>
 <div class="row ms"><span class="lab" style="padding-left:22px"><span class="t">주요 관계자 인터뷰</span></span><div class="bar" style="grid-column:4/5"><i style="width:100%;background:var(--han)"></i></div></div>
+<div class="row ms"><span class="lab" style="padding-left:22px"><span class="t">문서 샘플 수급</span></span><div class="bar" style="grid-column:4/5"><i style="width:100%;background:var(--han)"></i></div></div>
 <div class="row ms"><span class="lab" style="padding-left:22px"><span class="t">작업허가서 검토 TO-BE 모델 수립</span></span><div class="bar" style="grid-column:6/7"></div></div>
 <div class="row ms"><span class="lab" style="padding-left:22px"><span class="t">승인 체계 TO-BE 모델 수립</span></span><div class="bar" style="grid-column:6/7"></div></div>
 <div class="row ms"><span class="lab" style="padding-left:22px"><span class="t">작업허가서 검토 know-how 이전</span></span><div class="bar" style="grid-column:6/7"></div></div>
+<div class="row ms"><span class="lab" style="padding-left:22px"><span class="t">TO-BE 문서 양식 수급</span></span><div class="bar" style="grid-column:6/7"></div></div>
 <div class="today" style="left:calc(220px + (100% - 220px) * 3 / 12)"></div>
 </div></div>
 <footer>마일스톤 이름을 누르면 세부업무가 펼쳐집니다. 세부업무에 마우스를 올리면 WBS 원문이 표시됩니다.</footer>
